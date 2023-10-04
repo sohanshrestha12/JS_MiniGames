@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+
+</head>
+
+<body>
+    <canvas id="canvas" style="background-color: black;width: 700px; height: 500px;"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+        canvas.addEventListener('mousemove', (e) => {
+            console.log(e,e.clientX,e.clientY);
+            context.clearRect(0,0,700,500);
+            context.beginPath();
+            context.fillStyle = "yellow";
+            context.rect(50, e.clientY, 30,30);
+            context.fill();
+
+            // context.beginPath();
+            // context.fillStyle = "blue";
+            // context.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+            // context.fill();
+
+            // context.beginPath();
+            // context.fillStyle = "red";
+            // context.arc(e.clientX, e.clientY, 15, 0, 2 * Math.PI);
+            // context.fill();
+        });
+    </script>
+</body>
+
+</html>
