@@ -19,26 +19,26 @@
             let mx = e.clientX - rect.left;
             let my = e.clientY - rect.top;
             // console.log(mx,my);
-            context.clearRect(0,0,canvas.width, canvas.height);
+            context.clearRect(0, 0, canvas.width, canvas.height);
 
             context.beginPath();
-            context.arc(mx, my, 20,0, 2 * Math.PI);
+            context.arc(mx, my, 20, 0, 2 * Math.PI);
             context.fillStyle = "blue";
             context.fill();
 
             context.beginPath();
-            context.arc(mx, my, 12,0, 2 * Math.PI);
-            context.fillStyle = "red"; 
+            context.arc(mx, my, 12, 0, 2 * Math.PI);
+            context.fillStyle = "red";
             context.fill();
-            
-            
+
+
             context.beginPath();
-            context.arc(mx, my, 6,0, 2 * Math.PI);
+            context.arc(mx, my, 6, 0, 2 * Math.PI);
             context.fillStyle = "yellow";
-           context.fill();
-            
+            context.fill();
+
         });
-        </script>
+    </script>
 
 </body>
 

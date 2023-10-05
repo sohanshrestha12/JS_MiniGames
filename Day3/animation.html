@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+</head>
+
+<body>
+    <canvas style="background-color: black;" id="canvas" width="700" height="500"></canvas>
+
+    <script>
+        let canvas = document.getElementById("canvas");
+        let c = canvas.getContext("2d");
+        const rect = canvas.getBoundingClientRect();
+
+        let x = 0;
+        let y = 0;
+        let rafId = null;
+
+        const dropAnimation = () => {
+            c.clearRect(0, 0, canvas.width, canvas.height);
+
+            c.beginPath();
+            c.arc(x, y, 15, 0, 2 * Math.PI);
+            c.fillStyle = "green";
+            c.fill();
+            y += 1;
+            if (y+15  >= canvas.height) {
+                return;
+            }
+            rafId = window.requestAnimationFrame(dropAnimation);
+        }
+        const render = () => {
+            dropAnimation();
+        }
+
+        canvas.addEventListener('click', (e) => {
+            x = e.clientX - rect.left;
+            y = e.clientY - rect.top;
+
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+            }
+            console.log(rafId);
+            render();
+
+        })
+    </script>
+</body>
+
+</html>
