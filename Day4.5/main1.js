@@ -33,43 +33,39 @@ class Box {
     this.y += this.y_speed;
   }
   borderCollisionDetection() {
-    if (this.x + this.width >= canvas.height) {
+    if (this.x + this.width > canvas.height) {
       this.x_speed = -0.7;
       this.color = Math.ceil(Math.random() * (9 - 0) + 0);
-    } else if (this.x <= 0) {
+    } else if (this.x < 0) {
       this.x_speed = 0.7;
       this.color = Math.ceil(Math.random() * (9 - 0) + 0);
-    } else if (this.y + this.height >= canvas.height) {
+    } else if (this.y + this.height > canvas.height) {
       this.y_speed = -0.7;
       this.color = Math.ceil(Math.random() * (9 - 0) + 0);
-    } else if (this.y <= 0) {
+    } else if (this.y < 0) {
       this.y_speed = 0.7;
       this.color = Math.ceil(Math.random() * (9 - 0) + 0);
     }
   }
   boxCollisionDetection(otherBox) {
     if (
-      this.x <= otherBox.x + otherBox.width &&
-      this.x + this.width >= otherBox.x &&
-      this.y <= otherBox.y + otherBox.height &&
-      this.y + this.height >= otherBox.y
+      this.x + this.x_speed < otherBox.x + otherBox.width &&
+      this.x + this.x_speed + this.width > otherBox.x &&
+      this.y < otherBox.y + otherBox.height &&
+      this.y + this.height > otherBox.y
     ) {
-    
-        if (
-          this.x <= otherBox.x + otherBox.width &&
-          this.x + this.width >= otherBox.x
-        ) {
-          console.log("horizontal");
-          this.x_speed *= -1;
-        }
-      
-      if (
-        this.y <= otherBox.y + otherBox.height &&
-        this.y + this.height >= otherBox.y
-      ) {
-        console.log("vertical");
-        this.y_speed *= -1;
-      }
+      console.log("horizontal",this.x,this.y);
+      this.x_speed *= -1;
+    }
+
+    else if (
+      this.x < otherBox.x + otherBox.width &&
+      this.x + this.width > otherBox.x &&
+      this.y + this.y_speed < otherBox.y + otherBox.height &&
+      this.y + this.height + this.y_speed > otherBox.y
+    ) {
+      console.log("vertical", this.x, this.y);
+      this.y_speed *= -1;
     }
   }
   update() {
