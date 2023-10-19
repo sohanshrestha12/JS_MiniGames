@@ -9,6 +9,7 @@ class Enemy {
       x: 0,
       y: 1,
     };
+    this.isAlive = true;
     this.image = new Image();
     this.image.src='./images/rock.png';
   }

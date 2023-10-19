@@ -14,6 +14,7 @@ class Bullet {
     };
     this.image = new Image();
     this.image.src = "./images/bullet.png";
+ 
   }
   draw() {
     c.beginPath();
@@ -37,14 +38,20 @@ class Bullet {
         this.position.y <= enemies[i].position.y + enemies[i].size &&
         this.position.y + this.size.height >= enemies[i].position.y
       ) {
-
+        blast[i].position.x = enemies[i].position.x;
+        blast[i].position.y = enemies[i].position.y;
+        blast[i].maxSize = enemies[i].size;
+        enemies[i].isAlive= false;
+        setTimeout(()=>{
+          enemies[i].position.y = 0;
+          enemies[i].position.x = -500;
+        },120)
+        enemies[i].velocity.y = 0;
         this.position.x = -500;
         this.velocity.y = 0;
-        this.position.y = 0;
-        enemies[i].position.y = 0;
-        enemies[i].velocity.y = 0;
-        enemies[i].position.x = -500;
-
+        this.position.y = -500;
+        
+        break;
       }
     }
   }

@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space shooter</title>
+    <style>
+        html,
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden;
+            background-color: black;
+        }
+    </style>
 </head>
+
 <body>
-   <canvas id="canvas" height="500" width="500" style="background-color: black;position: relative;"></canvas>
-    
-   <script src="./bullet.js"></script>
-   <script src="./enemies.js"></script>
-   <script src="./player.js"></script>
-   <script src="./main.js"></script>
+    <canvas id="canvas" height="600" width="500" style="background-color: black;border: 1px solid white;position: relative;"></canvas>
+
+    <script src="./blast.js"></script>
+    <script src="./bullet.js"></script>
+    <script src="./enemies.js"></script>
+    <script src="./player.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>
