@@ -38,6 +38,7 @@ class Bullet {
         this.position.y <= enemies[i].position.y + enemies[i].size &&
         this.position.y + this.size.height >= enemies[i].position.y
       ) {
+        score+=1;
         blast[i].position.x = enemies[i].position.x;
         blast[i].position.y = enemies[i].position.y;
         blast[i].maxSize = enemies[i].size;
