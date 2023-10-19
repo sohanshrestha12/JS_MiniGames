@@ -68,3 +68,11 @@ document.addEventListener("keyup", (e) => {
   if (e.key === "ArrowLeft") player.velocity.x = 0;
   if (e.key === "ArrowRight") player.velocity.x = 0;
 });
+let offset =canvas.getBoundingClientRect();
+canvas.addEventListener('mousemove',(e)=>{
+  console.log(e);
+  if(player.isAlive){
+    player.position.x = e.clientX-offset.left;
+    player.position.y = e.clientY-offset.top;
+  }
+});

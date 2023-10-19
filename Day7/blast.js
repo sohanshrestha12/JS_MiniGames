@@ -22,7 +22,7 @@ class Blast {
         this.size,
         this.size
       );
-      this.size += 1; // Increase the size
+      this.size += 1.2; // Increase the size
       if (this.size >= this.maxSize) {
         this.expanding = false;
       }
